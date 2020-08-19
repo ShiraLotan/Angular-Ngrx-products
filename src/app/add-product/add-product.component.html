@@ -1,0 +1,27 @@
+    <h3>Add Product:</h3>
+    <form [formGroup]="addProductForm" >  
+        <label>
+            Product Name:
+            <input type="text" formControlName="productName">
+          </label>
+        
+          <label>
+            Store Name:
+            <input type="text" formControlName="storeName">
+          </label>
+          
+          <label>
+            Price:
+            <input type="text" formControlName="price">
+          </label>
+        
+          <label>
+            Estimated delivery date:
+            <input type="text" formControlName="delivery">
+          </label>
+        <button type="submit">Submit</button>
+     </form>
+     <button (click)="addProduct()">Add Product</button>
+
+  
+
