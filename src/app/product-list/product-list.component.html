@@ -2,12 +2,8 @@
   <mat-tab-group>
     <mat-tab label="Products">
       <h1>Product List:</h1>
-      <div *ngFor="let product of (productsList$ | async)">
-        <h3>{{product.name}}</h3>
-        <div>{{product.storeName}}</div>
-        <div>{{product.price}}</div>
-        <div>{{product.deliveryDate}}</div>
-        <button (click)="handleReceived(product.id)" mat-raised-button color="primary">Recieved</button>
+      <div *ngFor="let product of productsList">
+        <app-product [product]="product"></app-product>
       </div> 
     </mat-tab>
     <mat-tab label="Stores">
