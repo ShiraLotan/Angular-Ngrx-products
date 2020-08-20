@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Product } from '../interface/app.interface';
 
@@ -8,12 +8,14 @@ import { Product } from '../interface/app.interface';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-@Input() product: Product;
+  @Input() product: Product;
+  @Output() received = new EventEmitter();
 
   constructor(private store: Store<any>) { }
 
   ngOnInit() {
-    debugger
   }
-
+  handleproductIdemit(id) {
+    this.received.emit(id)
+  }
 }

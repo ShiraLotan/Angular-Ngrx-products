@@ -3,7 +3,7 @@
     <mat-tab label="Products">
       <h1>Product List:</h1>
       <div *ngFor="let product of productsList">
-        <app-product [product]="product"></app-product>
+        <app-product (receive)="handleReceived($event)" [product]="product"></app-product>
       </div> 
     </mat-tab>
     <mat-tab label="Stores">

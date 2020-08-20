@@ -43,6 +43,7 @@ export class ProductListComponent implements OnInit {
   }
 
   handleReceived(id) {
+    console.log(id)
     //Handle click on received product
   }
 }
