@@ -6,7 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ProductComponent } from "./product/product.component";
 import { StoreModule } from "@ngrx/store";
-import { productReducer } from "./state/product.reducer";
+import { stateReducer } from "./state/product.reducer";
 import { AddProductComponent } from "./add-product/add-product.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { StoreListComponent } from "./store-list/store-list.component";
@@ -30,7 +30,7 @@ import { MatMenuModule } from "@angular/material/menu";
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(productReducer),
+    StoreModule.forRoot({appState: stateReducer}),
     BrowserAnimationsModule,
     MatTabsModule,
     MatButtonModule,

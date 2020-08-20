@@ -2,8 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Store, select } from "@ngrx/store";
 import { AppState } from "../interface/app.interface";
-import { addProductToList } from "../state/app.actions";
-import { selectProductList } from "../state/product.reducer";
+import { addProductToList} from "../state/app.actions";
 
 @Component({
   selector: "app-add-product",
@@ -22,7 +21,6 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {}
   addProduct() {
-    debugger;
     this.store.dispatch(addProductToList(this.addProductForm.value));
   }
 }

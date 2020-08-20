@@ -1,10 +1,4 @@
-import {
-  createReducer,
-  on,
-  createAction,
-  createFeatureSelector,
-  createSelector,
-} from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { AppState, Product } from "../interface/app.interface";
 import { addProductToList } from "./app.actions";
 
@@ -13,17 +7,24 @@ const initialState: AppState = {
   storesList: [],
 };
 
-const stateProductList = (state: AppState) => state;
-
-export const selectProductList = createSelector(
-  stateProductList,
-  (state: AppState) => state.productsList
+const _stateReducer = createReducer(
+  initialState,
+  on(addProductToList, (state, action) => {
+    console.log(action);
+    return {
+      ...state,
+      productsList: [...state.productsList, action],
+    };
+  })
 );
 
-export const productReducer = createReducer(
-  initialState.productsList,
-  on(addProductToList, (state, product) => ({
-    ...state,
-    productsList: [...state, product],
-  }))
-);
+export function stateReducer(state, action) {
+  return _stateReducer(state, action);
+}
+// export const productReducer = createReducer(
+//   initialState.productsList,
+//   on(addProductToList, (state, product) => ({
+//     ...state,
+//     productsList: [...state, product],
+//   }))
+// );

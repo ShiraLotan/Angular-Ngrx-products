@@ -5,3 +5,4 @@ export const addProductToList = createAction(
   "[Product] Add Product To List",
   props<{ product: Product }>()
 );
+
