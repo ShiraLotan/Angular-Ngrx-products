@@ -1,0 +1,17 @@
+<div>
+  <mat-tab-group>
+    <mat-tab label="Products">
+      <h1>Product List:</h1>
+      <div *ngFor="let product of productsList">
+        <h3>{{product.name}}</h3>
+        <div>{{product.storeName}}</div>
+        <div>{{product.price}}</div>
+        <div>{{product.deliveryDate}}</div>
+        <button (click)="handleReceived(product.id)" mat-raised-button color="primary">Recieved</button>
+      </div> 
+    </mat-tab>
+    <mat-tab label="Stores">
+      <h1>Store List:</h1>
+    </mat-tab>
+  </mat-tab-group>
+</div>

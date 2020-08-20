@@ -9,7 +9,7 @@ export interface Product {
     storeName: string,
     price: number,
     isRecieved: boolean,
-    deliveryDate: Date
+    deliveryDate: number
 }
 
 export interface ProductStore {

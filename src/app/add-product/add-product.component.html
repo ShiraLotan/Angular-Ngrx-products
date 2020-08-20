@@ -1,27 +1,20 @@
-    <h3>Add Product:</h3>
-    <form [formGroup]="addProductForm" >  
-        <label>
-            Product Name:
-            <input type="text" formControlName="productName">
-          </label>
-        
-          <label>
-            Store Name:
-            <input type="text" formControlName="storeName">
-          </label>
-          
-          <label>
-            Price:
-            <input type="text" formControlName="price">
-          </label>
-        
-          <label>
-            Estimated delivery date:
-            <input type="text" formControlName="delivery">
-          </label>
-        <button type="submit">Submit</button>
-     </form>
-     <button (click)="addProduct()">Add Product</button>
-
-  
-
+<h3>Add Product:</h3>
+<form [formGroup]="addProductForm">
+  <mat-form-field class="example-form-field">
+    <mat-label>Product Name:</mat-label>
+    <input matInput type="text" formControlName="productName" />
+  </mat-form-field>
+  <mat-form-field class="example-form-field">
+    <mat-label>Store Name:</mat-label>
+    <input matInput type="text" formControlName="storeName" />
+  </mat-form-field>
+  <mat-form-field class="example-form-field">
+    <mat-label>Price:</mat-label>
+    <input matInput type="text" formControlName="price" />
+  </mat-form-field>
+  <mat-form-field class="example-form-field">
+    <mat-label>Estimated delivery date:</mat-label>
+    <input matInput type="text" formControlName="delivery" />
+  </mat-form-field>
+</form>
+<button mat-button color="accent" (click)="addProduct()">Add Product</button>
