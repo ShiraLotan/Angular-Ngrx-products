@@ -1,6 +1,7 @@
 import { createSelector } from '@ngrx/store';
+import { AppState } from '../interface/app.interface';
 
-const stateProductList = (state: any) => state.productsList;
+const stateProductList = (state: AppState) => state;
 
 export const selectProductList = createSelector(
   stateProductList,

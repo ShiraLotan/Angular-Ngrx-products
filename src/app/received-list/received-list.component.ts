@@ -13,7 +13,7 @@ export class ReceivedListComponent implements OnInit {
       name: "computer",
       storeName: "Amazon",
       price: 100,
-      isRecieved: false,
+      isRecieved: true,
       deliveryDate: 15 / 8 / 2020,
     },
     {
@@ -29,7 +29,7 @@ export class ReceivedListComponent implements OnInit {
       name: "computer",
       storeName: "Amazon",
       price: 100,
-      isRecieved: false,
+      isRecieved: true,
       deliveryDate: 15 / 8 / 2020,
     },
   ];

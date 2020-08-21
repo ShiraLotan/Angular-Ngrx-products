@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Product, AppState } from "../interface/app.interface";
 import { Store, select} from "@ngrx/store";
 import { Observable } from "rxjs";
+import { selectProductList } from '../state/selectors';
 
 @Component({
   selector: "app-product-list",
@@ -9,37 +10,12 @@ import { Observable } from "rxjs";
   styleUrls: ["./product-list.component.scss"],
 })
 export class ProductListComponent implements OnInit {
-  productsList: Product[] = [
-    {
-      id: 1,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: false,
-      deliveryDate: 15 / 8 / 2020,
-    },
-    {
-      id: 2,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: false,
-      deliveryDate: 15 / 8 / 2020,
-    },
-    {
-      id: 3,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: false,
-      deliveryDate: 15 / 8 / 2020,
-    },
-  ];
-
+  productList: Observable<AppState>;
+ 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-  //  this.store.pipe(select("appState"))
+    this.productList = this.store.pipe(select(selectProductList))
   }
 
   handleReceived(id) {

@@ -4,7 +4,6 @@ import { addProductToList } from "./app.actions";
 
 const initialState: AppState = {
   productsList: [],
-  storesList: [],
 };
 
 const _stateReducer = createReducer(
@@ -21,10 +20,4 @@ const _stateReducer = createReducer(
 export function stateReducer(state, action) {
   return _stateReducer(state, action);
 }
-// export const productReducer = createReducer(
-//   initialState.productsList,
-//   on(addProductToList, (state, product) => ({
-//     ...state,
-//     productsList: [...state, product],
-//   }))
-// );
+

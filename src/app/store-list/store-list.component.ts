@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Product } from '../interface/app.interface';
+import { Component, OnInit, Input } from "@angular/core";
+import { Product, ProductStore } from '../interface/app.interface';
 
 @Component({
   selector: "app-store-list",
@@ -7,33 +7,21 @@ import { Product } from '../interface/app.interface';
   styleUrls: ["./store-list.component.scss"],
 })
 export class StoreListComponent implements OnInit {
-  storeList: Product[] = [
-    {
-      id: 1,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: false,
-      deliveryDate: 15 / 8 / 2020,
-    },
-    {
-      id: 2,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: false,
-      deliveryDate: 15 / 8 / 2020,
-    },
-    {
-      id: 3,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: false,
-      deliveryDate: 15 / 8 / 2020,
-    },
-  ];
-  constructor() {}
+  @Input() productsList: Product[];
+  groupedStores: ProductStore[];
 
-  ngOnInit() {}
+  constructor() { }
+
+  ngOnInit() {
+    const storesArr = [];
+    let group = this.productsList.reduce((r, a) => {
+      r[a.storeName] = ++r[a.storeName] || 1;
+      return r;
+    }, {});
+    for (let [key, value] of Object.entries(group)) {
+      const storeObj = { name: key, sum: value };
+      storesArr.push(storeObj)
+    }
+    this.groupedStores = storesArr;
+  }
 }

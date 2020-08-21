@@ -1,6 +1,5 @@
 export interface AppState {
     productsList: Product[],
-    storesList: ProductStore[]
 }
 
 export interface Product {
@@ -13,7 +12,6 @@ export interface Product {
 }
 
 export interface ProductStore {
-    id: number,
     name: string,
-    orders: number
+    sum: number 
 }

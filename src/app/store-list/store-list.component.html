@@ -1,8 +1,8 @@
 <div>
   <h1>Store list:</h1>
-  <div *ngFor="let store of storeList">
-    <h3>{{store.name}}</h3>
-    <div>{{store.storeName}}</div>
+  <div *ngFor="let store of groupedStores">
+    <h4>{{store.name}}</h4>
+    <span>{{store.sum}}</span>
   </div>
 </div>
 
