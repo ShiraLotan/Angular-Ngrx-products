@@ -9,13 +9,13 @@ import { Product } from '../interface/app.interface';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
-  @Output() received = new EventEmitter();
+  @Output() receive = new EventEmitter();
 
   constructor(private store: Store<any>) { }
 
   ngOnInit() {
   }
   handleproductIdemit(id) {
-    this.received.emit(id)
+    this.receive.emit(id)
   }
 }

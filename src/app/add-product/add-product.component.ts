@@ -23,8 +23,9 @@ export class AddProductComponent implements OnInit {
   ngOnInit() { }
   addProduct() {
     this.addProductForm.value.id = this.countId;
-    console.log(this.addProductForm.value)
+    this.addProductForm.value.isRecieved = false;
     this.store.dispatch(addProductToList(this.addProductForm.value));
+    console.log(this.addProductForm.value)
     this.countId++;
   }
 }

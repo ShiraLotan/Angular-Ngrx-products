@@ -3,6 +3,7 @@ import { Product, AppState } from "../interface/app.interface";
 import { Store, select} from "@ngrx/store";
 import { Observable } from "rxjs";
 import { selectProductList } from '../state/selectors';
+import { updateReceivedProduct } from '../state/app.actions';
 
 @Component({
   selector: "app-product-list",
@@ -19,7 +20,6 @@ export class ProductListComponent implements OnInit {
   }
 
   handleReceived(id) {
-    console.log(id)
-    //Handle click on received product
+    this.store.dispatch(updateReceivedProduct({id: id}))
   }
 }

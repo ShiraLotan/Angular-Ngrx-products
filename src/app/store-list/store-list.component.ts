@@ -10,7 +10,8 @@ export class StoreListComponent implements OnInit {
   @Input() productsList: Product[];
   groupedStores: ProductStore[];
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
     const storesArr = [];

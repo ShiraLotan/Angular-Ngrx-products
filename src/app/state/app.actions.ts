@@ -6,3 +6,8 @@ export const addProductToList = createAction(
   props<{ product: Product }>()
 );
 
+export const updateReceivedProduct = createAction(
+  "[Product] Update Product Received",
+  props<{ id: any }>()
+);
+
