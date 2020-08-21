@@ -10,7 +10,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  currency: Observable <number>;
+  priceChoosen: boolean = true;
+  currencyCurrent: Observable <number>;
+  symbol: string = this.priceChoosen ? 'ILS' : 'USD';
   @Input() product: Product;
   @Output() receive = new EventEmitter();
 
@@ -18,8 +20,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.appService.getCurrency().subscribe(res=>{
-      this.currency = res.rates.ILS
-      console.log(this.currency)
+      this.currencyCurrent = res.rates.ILS
     })
   }
   handleproductIdemit(id) {

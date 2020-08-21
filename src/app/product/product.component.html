@@ -1,10 +1,13 @@
 <h3>{{product.name}}</h3>
 <div>{{product.storeName}}</div>
-<div>{{product.price}}</div>
+<div *ngIf="currencyCurrent">
+    <span *ngIf="priceChoosen; else elseBlock">ILS</span>
+    <ng-template #elseBlock>USD</ng-template>{{ product.price | currency: currencyCurrent: priceChoosen | number : '1.2-2'}}</div>
 <div>{{product.deliveryDate}}</div>
-<button (click)="handleproductIdemit(product.id)" mat-raised-button color="primary">Recieved</button>
 
 <mat-radio-group aria-label="Select an option">
-    <mat-radio-button value="shekel" checked>Shekel</mat-radio-button>
-    <mat-radio-button value="usd">USD</mat-radio-button>
+    <mat-radio-button (click)="priceChoosen = true" value="shekel" [checked]="priceChoosen">Shekel</mat-radio-button>
+    <mat-radio-button (click)="priceChoosen = false" value="usd" [checked]="!priceChoosen">USD</mat-radio-button>
 </mat-radio-group>
+<button (click)="handleproductIdemit(product.id)" mat-raised-button color="primary">Recieved</button>
+

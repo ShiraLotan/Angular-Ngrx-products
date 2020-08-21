@@ -18,6 +18,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatRadioModule } from '@angular/material/radio';
+import { CustomePipe } from './pipes/custom.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatRadioModule } from '@angular/material/radio';
     ProductListComponent,
     StoreListComponent,
     ReceivedListComponent,
+    CustomePipe,
   ],
   imports: [
     BrowserModule,
