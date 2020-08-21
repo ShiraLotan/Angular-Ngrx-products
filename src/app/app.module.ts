@@ -19,7 +19,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatRadioModule } from '@angular/material/radio';
 import { CustomePipe } from './pipes/custom.pipe';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +42,12 @@ import { CustomePipe } from './pipes/custom.pipe';
     MatInputModule,
     MatMenuModule,
     MatRadioModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [MatTabsModule, MatButtonModule, MatInputModule, MatMenuModule, MatRadioModule],
+  exports: [MatTabsModule, MatButtonModule, MatInputModule, MatMenuModule, MatRadioModule, MatDatepickerModule],
 })
 export class AppModule { }

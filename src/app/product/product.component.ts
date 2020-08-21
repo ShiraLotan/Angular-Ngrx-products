@@ -12,7 +12,6 @@ import { Observable } from 'rxjs';
 export class ProductComponent implements OnInit {
   priceChoosen: boolean = true;
   currencyCurrent: Observable <number>;
-  symbol: string = this.priceChoosen ? 'ILS' : 'USD';
   @Input() product: Product;
   @Output() receive = new EventEmitter();
 

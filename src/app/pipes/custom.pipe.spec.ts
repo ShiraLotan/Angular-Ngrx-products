@@ -1,8 +1,8 @@
-import { CccPipe } from './ccc.pipe';
+import { CustomePipe } from './custom.pipe';
 
-describe('CccPipe', () => {
+describe('CustomePipe', () => {
   it('create an instance', () => {
-    const pipe = new CccPipe();
+    const pipe = new CustomePipe();
     expect(pipe).toBeTruthy();
   });
 });
