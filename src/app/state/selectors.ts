@@ -7,3 +7,10 @@ export const selectProductList = createSelector(
   stateProductList,
   (state) => state
 );
+
+export const selectRecievedProductList = createSelector(
+  stateProductList,
+  (state) => {
+    return state
+  }
+);

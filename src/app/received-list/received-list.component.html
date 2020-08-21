@@ -1,6 +1,12 @@
-<div *ngFor="let product of receivedList">
+<!-- <div *ngIf="(receivedList$ | async)" *ngFor="let product of (receivedList$ | async).appState.productsList">
+ <div *ngIf="product.isRecieved">
   <h3>{{product.name}}</h3>
   <div>{{product.storeName}}</div>
   <div>{{product.price}}</div>
   <div>{{product.deliveryDate}}</div>
+ </div>
+</div>  -->
+
+<div *ngFor="let product of (productList$ | async)?.appState.productsList">
+  <h1>fdsfsdfds</h1>
 </div> 

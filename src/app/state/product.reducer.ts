@@ -15,11 +15,10 @@ const _stateReducer = createReducer(
     };
   }),
   on(updateReceivedProduct, (state, action) => {
-    const filterProducts = filterReceivedProduct(state.productsList, action.id)
-    console.log(filterProducts)
+    const newList = filterReceivedProduct(state, action.id)
     return {
       ...state,
-      productsList: [...filterProducts]
+      productsList: [...newList]
     }
   })
 );
@@ -28,10 +27,12 @@ export function stateReducer(state, action) {
   return _stateReducer(state, action);
 }
 
-const filterReceivedProduct = (list, id) => {
- const changeReceivedState = list.filter((item) => {
-  return item.id === id ? item[isRecieved] = true : null;
-  })
-  return changeReceivedState
+const filterReceivedProduct = (list, id) =>{
+  const filtered = list.productsList.map(item => ({
+    ...item,
+    isRecieved: item.id === id // sets isRecieved to true or false based on the equalty comparison
+  }));
+  return filtered;
 }
+  
 

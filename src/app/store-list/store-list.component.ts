@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Product, ProductStore } from '../interface/app.interface';
-
+import { Observable } from 'rxjs';
+import { reduce } from 'rxjs/operators';
 @Component({
   selector: "app-store-list",
   templateUrl: "./store-list.component.html",

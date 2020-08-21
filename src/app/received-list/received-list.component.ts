@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../interface/app.interface';
+import { AppState } from '../interface/app.interface';
+import { Store, select } from '@ngrx/store';
+import { selectProductList } from '../state/selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-received-list',
@@ -7,35 +10,12 @@ import { Product } from '../interface/app.interface';
   styleUrls: ['./received-list.component.scss']
 })
 export class ReceivedListComponent implements OnInit {
-  receivedList: Product[] = [
-    {
-      id: 1,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: true,
-      deliveryDate: 15 / 8 / 2020,
-    },
-    {
-      id: 2,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: false,
-      deliveryDate: 15 / 8 / 2020,
-    },
-    {
-      id: 3,
-      name: "computer",
-      storeName: "Amazon",
-      price: 100,
-      isRecieved: true,
-      deliveryDate: 15 / 8 / 2020,
-    },
-  ];
-  constructor() { }
+  recievedList$: Observable<AppState>;
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.recievedList$ = this.store.pipe(select(selectProductList))
   }
 
 }
