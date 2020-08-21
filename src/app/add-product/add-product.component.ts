@@ -22,7 +22,7 @@ export class AddProductComponent implements OnInit {
     productName: new FormControl('', [Validators.required]),
     storeName: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-    delivery: new FormControl('', [this.dateValidator()]),
+    deliveryDate: new FormControl('', [this.dateValidator()]),
   });
   constructor(private store: Store<AppState>, private router: Router) { }
 

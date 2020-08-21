@@ -1,10 +1,16 @@
-<div>
+<div class="product-list-wrapper">
   <h4>Total products: {{(productList | async).appState.productsList.length }}</h4>
   <mat-tab-group>
     <mat-tab label="Products">
       <h1>Product List:</h1>
-      <div *ngFor="let product of (productList | async).appState.productsList">
-        <app-product *ngIf="product && !product.isRecieved" (receive)="handleReceived($event)" [product]="product"></app-product>
+      <div class="products-container">
+        <mat-grid-list cols="4" >
+          <div *ngFor="let product of (productList | async).appState.productsList">
+            <mat-grid-tile>
+             <app-product *ngIf="product && !product.isRecieved" (receive)="handleReceived($event)" [product]="product"></app-product>
+            </mat-grid-tile>  
+          </div>
+      </mat-grid-list>
       </div> 
     </mat-tab>
     <mat-tab label="Stores">

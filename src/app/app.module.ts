@@ -21,6 +21,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { CustomePipe } from './pipes/custom.pipe';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +48,8 @@ import {MatNativeDateModule} from '@angular/material';
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],
