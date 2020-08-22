@@ -4,17 +4,13 @@
     <mat-tab label="Products">
       <h1>Product List:</h1>
       <div *ngIf="currencyCurrent" class="products-container">
-        <mat-grid-list cols="4" >
           <div *ngFor="let product of (productList | async).state.productsList">
-            <mat-grid-tile>
              <app-product *ngIf="product && !product.isRecieved" (receive)="handleReceived($event)" [product]="product" [currencyCurrent]="currencyCurrent"></app-product>
-            </mat-grid-tile>  
           </div>
-      </mat-grid-list>
       </div> 
     </mat-tab>
     <mat-tab label="Stores">
-      <app-store-list [productsList]="(productList | async).state.productsList"></app-store-list>
+      <app-store-list [productsList]="(productList | async).state.productsList" [isRecived]="false"></app-store-list>
     </mat-tab>
   </mat-tab-group>
 </div>

@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class AppService {
   currency: Observable<any>;
+  counter: number = 1;
   convertUrl: string = "https://api.exchangeratesapi.io/latest?base=USD";
 
   constructor(private http: HttpClient) { }
@@ -26,5 +27,13 @@ export class AppService {
 
   getCurrencyPrice(){
     return this.currency
+  }
+
+  getCounterState(){
+    return this.counter
+  }
+
+  setCounterState(){
+    this.counter++
   }
 }

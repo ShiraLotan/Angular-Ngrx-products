@@ -9,6 +9,8 @@ import { reduce } from 'rxjs/operators';
 })
 export class StoreListComponent implements OnInit {
   @Input() productsList: Product[];
+  @Input() isRecived: boolean;
+
   groupedStores: ProductStore[];
 
   constructor() {
@@ -16,7 +18,8 @@ export class StoreListComponent implements OnInit {
 
   ngOnInit() {
     const storesArr = [];
-    let group = this.productsList.reduce((r, a) => {
+    const filterProductList =this.isRecived ? this.productsList.filter(product=> product.isRecieved) :this.productsList.filter(product=> !product.isRecieved)
+    let group = filterProductList.reduce((r, a) => {
       r[a.storeName] = ++r[a.storeName] || 1;
       return r;
     }, {});

@@ -1,5 +1,13 @@
-<button mat-button routerLink="/">Home</button>
-<button mat-button routerLink="/products">Products</button>
-<button mat-button routerLink="/received">Received</button>
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <span>My Products</span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/products">Products</button>
+    <button mat-button routerLink="/received">Received</button>
+  </mat-toolbar>
+
 
 <router-outlet></router-outlet>

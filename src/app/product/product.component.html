@@ -1,10 +1,11 @@
 <mat-card>
     <h3>{{product.name}}</h3>
-    <div>{{product.storeName}}</div>
+    <div class="store-name">{{product.storeName}}</div>
     <div *ngIf="currencyCurrent">
         <span *ngIf="priceChoosen; else elseBlock">ILS</span>
         <ng-template #elseBlock>USD</ng-template>{{ product.price | currency: currencyCurrent: priceChoosen | number : '1.2-2'}}</div>
-    <div>{{product.deliveryDate | date: 'dd/MM/yyyy'}}</div>
+        <div class="date-header">Estimated Delivery Date:</div>
+        <div>{{product.deliveryDate | date: 'dd/MM/yyyy'}}</div>
 
     <mat-radio-group aria-label="Select an option">
         <mat-radio-button (click)="priceChoosen = true" value="shekel" [checked]="priceChoosen">Shekel</mat-radio-button>

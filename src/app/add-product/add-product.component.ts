@@ -5,6 +5,7 @@ import { AppState } from "../interface/app.interface";
 import { addProductToList } from "../state/app.actions";
 import * as moment from "moment";
 import { Router } from '@angular/router';
+import { AppService } from 'src/services/appservice.service';
 
 @Component({
   selector: "app-add-product",
@@ -12,22 +13,22 @@ import { Router } from '@angular/router';
   styleUrls: ["./add-product.component.scss"],
 })
 export class AddProductComponent implements OnInit {
+  countId: number;
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
     return day !== 0 && day !== 6;
   }
-  countId: number = 1;
   addProductForm = new FormGroup({
     id: new FormControl(''),
-    productName: new FormControl('', [Validators.required]),
-    storeName: new FormControl('', [Validators.required]),
-    price: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-    deliveryDate: new FormControl('', [this.dateValidator()]),
+    name: new FormControl('Headphones', [Validators.required]),
+    storeName: new FormControl('Amazon', [Validators.required]),
+    price: new FormControl('120', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    deliveryDate: new FormControl('12/6/2021', [this.dateValidator()]),
   });
-  constructor(private store: Store<AppState>, private router: Router) { }
+  constructor(private store: Store<AppState>, private router: Router,private appService:AppService ) { }
 
   ngOnInit() {
-
+   this.countId = this.appService.getCounterState()
   }
 
   onSubmit(e) {
@@ -37,7 +38,7 @@ export class AddProductComponent implements OnInit {
       console.log(this.addProductForm.value)
       this.addProductForm.value.isRecieved = false;
       this.store.dispatch(addProductToList(this.addProductForm.value));
-      this.countId++;
+      this.appService.setCounterState();
       this.addProductForm.reset(this.addProductForm)
       this.router.navigate(['/products']);
     }
