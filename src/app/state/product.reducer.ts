@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
-import { AppState, Product } from "../interface/app.interface";
-import { addProductToList, updateReceivedProduct } from "./app.actions";
+import { AppState} from "../interface/app.interface";
+import { addProductToList, updateReceivedProduct } from "./product.actions";
 
 
 const initialState: AppState = {

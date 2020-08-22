@@ -13,4 +13,5 @@
       <app-store-list [productsList]="(productList | async).state.productsList" [isRecived]="false"></app-store-list>
     </mat-tab>
   </mat-tab-group>
+  <div *ngIf="!(productList | async).state.productsList.length">No products</div>
 </div>

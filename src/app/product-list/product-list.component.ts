@@ -3,7 +3,7 @@ import { Product, AppState } from "../interface/app.interface";
 import { Store, select} from "@ngrx/store";
 import { Observable, timer, Subscription } from "rxjs";
 import { selectProductList } from '../state/selectors';
-import { updateReceivedProduct } from '../state/app.actions';
+import { updateReceivedProduct } from '../state/product.actions';
 import { switchMap } from 'rxjs/operators';
 import { AppService } from 'src/services/appservice.service';
 

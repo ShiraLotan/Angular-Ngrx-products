@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { AppState } from "../interface/app.interface";
-import { addProductToList } from "../state/app.actions";
+import { addProductToList } from "../state/product.actions";
 import * as moment from "moment";
 import { Router } from '@angular/router';
 import { AppService } from 'src/services/appservice.service';
