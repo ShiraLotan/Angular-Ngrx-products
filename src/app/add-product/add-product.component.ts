@@ -23,7 +23,7 @@ export class AddProductComponent implements OnInit {
     name: new FormControl('Headphones', [Validators.required]),
     storeName: new FormControl('Amazon', [Validators.required]),
     price: new FormControl('120', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
-    deliveryDate: new FormControl('12/6/2021', [this.dateValidator()]),
+    deliveryDate: new FormControl(new Date(), [this.dateValidator()]),
   });
   constructor(private store: Store<AppState>, private router: Router,private productService:ProductService ) { }
 

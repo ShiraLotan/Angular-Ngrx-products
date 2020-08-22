@@ -13,23 +13,25 @@ import { ProductService } from 'src/services/prodctService.service';
   styleUrls: ["./product-list.component.scss"],
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  productList: Observable<AppState>;
+  productList$: Observable<AppState>;
   currencyCurrent: Observable<number>;
   subscription: Subscription;
 
   constructor(private store: Store<AppState>, private productService: ProductService) {}
 
   ngOnInit() {
-    this.productList = this.store.pipe(select(selectProductList))
+    this.productList$ = this.store.pipe(select(selectProductList))
+    this.getCurrencyRate();
+  }
 
-   this.subscription = timer(0, 10000).pipe(
+  getCurrencyRate(): void{
+    this.subscription = timer(0, 10000).pipe(
       switchMap(() => this.productService.getCurrency())
     ).subscribe(res =>{
       this.currencyCurrent = res.rates.ILS
     } );
   }
-
-  handleReceived(id) {
+  handleReceived(id: number): void {
     this.store.dispatch(updateReceivedProduct({id: id}))
   }
 

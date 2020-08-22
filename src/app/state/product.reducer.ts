@@ -17,6 +17,7 @@ const _stateReducer = createReducer(
   }),
   on(updateReceivedProduct, (state, action) => {
     const newList = filterReceivedProduct(state, action.id)
+    console.log(newList)
     return {
       ...state,
       productsList: [...newList]
@@ -33,7 +34,8 @@ const filterReceivedProduct = (list, id) => {
     ...item,
     isRecieved: item.id === id
   }));
-  return filtered;
+debugger 
+ return filtered;
 }
 
 

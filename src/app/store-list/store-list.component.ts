@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Product, ProductStore } from '../interface/app.interface';
-import { Observable } from 'rxjs';
-import { reduce } from 'rxjs/operators';
+
 @Component({
   selector: "app-store-list",
   templateUrl: "./store-list.component.html",
@@ -17,6 +16,10 @@ export class StoreListComponent implements OnInit {
    }
 
   ngOnInit() {
+   this.aggrigateStoreProductsSum();
+  }
+
+  aggrigateStoreProductsSum(){
     const storesArr = [];
     const filterProductList =this.isRecived ? this.productsList.filter(product=> product.isRecieved) :this.productsList.filter(product=> !product.isRecieved)
     let group = filterProductList.reduce((r, a) => {

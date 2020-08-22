@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleproductIdemit(id) {
+  handleproductIdemit(id: number): void {
     this.receive.emit(id)
   }
 }
