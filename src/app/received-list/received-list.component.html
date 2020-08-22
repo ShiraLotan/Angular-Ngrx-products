@@ -1,12 +1,19 @@
-<!-- <div *ngIf="(receivedList$ | async)" *ngFor="let product of (receivedList$ | async).appState.productsList">
- <div *ngIf="product.isRecieved">
-  <h3>{{product.name}}</h3>
-  <div>{{product.storeName}}</div>
-  <div>{{product.price}}</div>
-  <div>{{product.deliveryDate}}</div>
- </div>
-</div>  -->
-
-<div *ngFor="let product of (productList$ | async)?.appState.productsList">
-  <h1>fdsfsdfds</h1>
-</div> 
+<div class="product-list-wrapper">
+  <mat-tab-group>
+    <mat-tab label="Recieved Products">
+      <h1>Recieved List:</h1>
+      <div class="products-container">
+        <mat-grid-list cols="4" >
+          <div *ngFor="let product of (recievedList$ | async).state.productsList">
+            <mat-grid-tile>
+             <app-product *ngIf="product && product.isRecieved" [product]="product"></app-product>
+            </mat-grid-tile>  
+          </div>
+      </mat-grid-list>
+      </div> 
+    </mat-tab>
+    <mat-tab label="Stores">
+      <app-store-list [productsList]="(recievedList$ | async).state.productsList"></app-store-list>
+    </mat-tab>
+  </mat-tab-group>
+</div>

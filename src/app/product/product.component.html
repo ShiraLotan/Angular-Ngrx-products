@@ -10,5 +10,5 @@
         <mat-radio-button (click)="priceChoosen = true" value="shekel" [checked]="priceChoosen">Shekel</mat-radio-button>
         <mat-radio-button (click)="priceChoosen = false" value="usd" [checked]="!priceChoosen">USD</mat-radio-button>
     </mat-radio-group>
-    <button (click)="handleproductIdemit(product.id)" mat-raised-button color="primary">Recieved</button>
+    <button *ngIf="!product.isRecieved" (click)="handleproductIdemit(product.id)" mat-raised-button color="primary">Recieved</button>
 </mat-card>

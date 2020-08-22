@@ -15,7 +15,7 @@ export class ReceivedListComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.recievedList$ = this.store.pipe(select(selectProductList))
+   this.recievedList$ = this.store.pipe(select(selectProductList))
   }
 
 }

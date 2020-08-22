@@ -38,7 +38,7 @@ import {MatCardModule} from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ appState: stateReducer }),
+    StoreModule.forRoot({ state: stateReducer }),
     BrowserAnimationsModule,
     MatTabsModule,
     MatButtonModule,

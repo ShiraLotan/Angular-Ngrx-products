@@ -30,10 +30,11 @@ export class AddProductComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  onSubmit(e) {
+    e.preventDefault();
     if (this.addProductForm.valid) {
-      console.log(this.addProductForm.value)
       this.addProductForm.value.id = this.countId;
+      console.log(this.addProductForm.value)
       this.addProductForm.value.isRecieved = false;
       this.store.dispatch(addProductToList(this.addProductForm.value));
       this.countId++;

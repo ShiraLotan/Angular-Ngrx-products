@@ -2,6 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { AppState, Product } from "../interface/app.interface";
 import { addProductToList, updateReceivedProduct } from "./app.actions";
 
+
 const initialState: AppState = {
   productsList: [],
 };
@@ -27,12 +28,14 @@ export function stateReducer(state, action) {
   return _stateReducer(state, action);
 }
 
-const filterReceivedProduct = (list, id) =>{
+const filterReceivedProduct = (list, id) => {
   const filtered = list.productsList.map(item => ({
     ...item,
-    isRecieved: item.id === id // sets isRecieved to true or false based on the equalty comparison
+    isRecieved: item.id === id
   }));
   return filtered;
 }
-  
+
+
+
 
