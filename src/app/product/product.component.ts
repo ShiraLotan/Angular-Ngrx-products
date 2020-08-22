@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Product } from '../interface/app.interface';
 import { AppService } from 'src/services/appservice.service';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -11,17 +11,16 @@ import { Observable } from 'rxjs';
 })
 export class ProductComponent implements OnInit {
   priceChoosen: boolean = true;
-  currencyCurrent: Observable <number>;
+  @Input() currencyCurrent: Observable<number>;
   @Input() product: Product;
   @Output() receive = new EventEmitter();
 
-  constructor(private store: Store<any>, private appService : AppService) { }
+  constructor( private appService: AppService) { }
 
   ngOnInit() {
-    this.appService.getCurrency().subscribe(res=>{
-      this.currencyCurrent = res.rates.ILS
-    })
+  
   }
+
   handleproductIdemit(id) {
     this.receive.emit(id)
   }

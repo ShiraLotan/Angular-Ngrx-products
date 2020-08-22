@@ -7,7 +7,7 @@
         <mat-grid-list cols="4" >
           <div *ngFor="let product of (productList | async).state.productsList">
             <mat-grid-tile>
-             <app-product *ngIf="product && !product.isRecieved" (receive)="handleReceived($event)" [product]="product"></app-product>
+             <app-product *ngIf="product && !product.isRecieved" (receive)="handleReceived($event)" [product]="product" [currencyCurrent]="currencyCurrent"></app-product>
             </mat-grid-tile>  
           </div>
       </mat-grid-list>
