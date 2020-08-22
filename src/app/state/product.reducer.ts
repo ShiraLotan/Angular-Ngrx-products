@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { AppState} from "../interface/app.interface";
+import { AppState } from "../interface/app.interface";
 import { addProductToList, updateReceivedProduct } from "./product.actions";
 
 
@@ -17,9 +17,7 @@ const _stateReducer = createReducer(
   }),
   on(updateReceivedProduct, (state, action) => {
     const newList = filterReceivedProduct(state, action.id)
-    console.log(newList)
     return {
-      ...state,
       productsList: [...newList]
     }
   })
@@ -30,12 +28,11 @@ export function stateReducer(state, action) {
 }
 
 const filterReceivedProduct = (list, id) => {
-  const filtered = list.productsList.map(item => ({
-    ...item,
-    isRecieved: item.id === id
-  }));
-debugger 
- return filtered;
+  const filtered = list.productsList.map(item => {
+    if (item.id === id) return { ...item, isRecieved: item.id === id };
+    return item;
+  });
+  return filtered;
 }
 
 
