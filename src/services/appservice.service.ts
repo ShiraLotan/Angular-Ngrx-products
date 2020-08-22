@@ -7,18 +7,24 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AppService {
+  currency: Observable<any>;
   convertUrl: string = "https://api.exchangeratesapi.io/latest?base=USD";
 
   constructor(private http: HttpClient) { }
 
   getCurrency(): Observable<any> {
-    return this.http.get(this.convertUrl).pipe(
+    this.currency = this.http.get(this.convertUrl).pipe(
       catchError(this.handleError)
     );
+    return this.currency
   }
 
   handleError(error: HttpErrorResponse) {
     return throwError(
       'Something bad happened; please try again later.');
+  }
+
+  getCurrencyPrice(){
+    return this.currency
   }
 }

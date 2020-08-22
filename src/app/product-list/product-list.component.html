@@ -3,7 +3,7 @@
   <mat-tab-group>
     <mat-tab label="Products">
       <h1>Product List:</h1>
-      <div class="products-container">
+      <div *ngIf="currencyCurrent" class="products-container">
         <mat-grid-list cols="4" >
           <div *ngFor="let product of (productList | async).state.productsList">
             <mat-grid-tile>

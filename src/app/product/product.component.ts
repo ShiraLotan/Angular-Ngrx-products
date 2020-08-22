@@ -18,7 +18,6 @@ export class ProductComponent implements OnInit {
   constructor( private appService: AppService) { }
 
   ngOnInit() {
-  
   }
 
   handleproductIdemit(id) {
