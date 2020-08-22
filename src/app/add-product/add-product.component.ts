@@ -5,7 +5,7 @@ import { AppState } from "../interface/app.interface";
 import { addProductToList } from "../state/product.actions";
 import * as moment from "moment";
 import { Router } from '@angular/router';
-import { AppService } from 'src/services/appservice.service';
+import { ProductService } from 'src/services/prodctService.service';
 
 @Component({
   selector: "app-add-product",
@@ -25,10 +25,10 @@ export class AddProductComponent implements OnInit {
     price: new FormControl('120', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
     deliveryDate: new FormControl('12/6/2021', [this.dateValidator()]),
   });
-  constructor(private store: Store<AppState>, private router: Router,private appService:AppService ) { }
+  constructor(private store: Store<AppState>, private router: Router,private productService:ProductService ) { }
 
   ngOnInit() {
-   this.countId = this.appService.getCounterState()
+   this.countId = this.productService.getCounterState()
   }
 
   onSubmit(e) {
@@ -38,7 +38,7 @@ export class AddProductComponent implements OnInit {
       console.log(this.addProductForm.value)
       this.addProductForm.value.isRecieved = false;
       this.store.dispatch(addProductToList(this.addProductForm.value));
-      this.appService.setCounterState();
+      this.productService.setCounterState();
       this.addProductForm.reset(this.addProductForm)
       this.router.navigate(['/products']);
     }

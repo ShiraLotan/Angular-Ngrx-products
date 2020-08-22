@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AppService {
+export class ProductService {
   currency: Observable<any>;
   counter: number = 1;
   convertUrl: string = "https://api.exchangeratesapi.io/latest?base=USD";

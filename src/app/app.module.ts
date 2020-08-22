@@ -18,7 +18,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatInputModule } from "@angular/material/input";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatRadioModule } from '@angular/material/radio';
-import { CustomePipe } from './pipes/custom.pipe';
+import { CurrencyConverterPipe } from './pipes/currencyConverter.pipe';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -34,7 +34,7 @@ import {MatIconModule} from '@angular/material/icon';
     ProductListComponent,
     StoreListComponent,
     ReceivedListComponent,
-    CustomePipe,
+    CurrencyConverterPipe,
   ],
   imports: [
     BrowserModule,
