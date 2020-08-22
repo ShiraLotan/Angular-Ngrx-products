@@ -18,7 +18,9 @@ export class ReceivedListComponent implements OnInit {
 
   ngOnInit() {
    this.recievedList$ = this.store.pipe(select(selectProductList))
-   this.currenctCurrency = this.productsService.getCurrency();
+   this.productsService.getCurrency().subscribe(res=>{
+    this.currenctCurrency = res.rates.ILS
+   });
   }
 
 }

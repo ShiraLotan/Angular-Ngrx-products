@@ -19,7 +19,7 @@ export class StoreListComponent implements OnInit {
    this.aggrigateStoreProductsSum();
   }
 
-  aggrigateStoreProductsSum(){
+  aggrigateStoreProductsSum(): void{
     const storesArr = [];
     const filterProductList =this.isRecived ? this.productsList.filter(product=> product.isRecieved) :this.productsList.filter(product=> !product.isRecieved)
     let group = filterProductList.reduce((r, a) => {
